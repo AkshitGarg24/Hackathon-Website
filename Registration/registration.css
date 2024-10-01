@@ -1,0 +1,203 @@
+body{
+    background: radial-gradient(circle, rgb(245, 208, 226) 0%, rgba(148, 187, 233, 1) 100%);
+}
+.background{
+    width: 430px;
+    height: 520px;
+    position: absolute;
+    transform: translate(-50%,20%);
+    left: 50%;
+}
+.background .shape{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
+}
+.shape:first-child{
+    background: linear-gradient(#1845ad, #23a2f6);
+    left: -80px;
+    top: -80px;
+}
+.shape:last-child{
+    background: linear-gradient(to right, #ff512f, #f09819);
+    right: -80px;
+    bottom: -80px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 720px;
+    width: 400px;
+    background-color: rgba(255,255,255,0.13);
+    position: absolute;
+    transform: translate(-50%,0%);
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(40px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+form *{
+    align-items: center;
+    justify-content: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(0, 0, 0);
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+} 
+form h3{
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    margin-top: 0px;
+}
+@keyframes slideIn {
+  from {
+      transform: translateY(-30px);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+/* Error message animation */
+@keyframes slideIn {
+  from {
+      transform: translateY(-20px);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+/* Base styles for #message */
+#message {
+  background-color: rgba(255, 0, 0, 0.1); /* Light red background */
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 10px;
+  opacity: 0; /* Start hidden */
+  max-height: 0; /* Start collapsed */
+  overflow: hidden; /* Hide overflow */
+  transform: translateY(-20px); /* Start slightly above */
+  transition: max-height 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* When the error message is active */
+#message.show {
+  opacity: 1;
+  max-height: 100px;
+  transform: translateY(0);
+}
+/* Adjust form size when error message is visible */
+form.error-active {
+  padding-bottom: 80px; /* Extra space for error message */
+  transition: padding-bottom 0.5s ease;
+}
+.input-form{
+  margin-left: 20px;
+  width: 90%;
+}
+label{
+    font-weight: bolder;
+    margin-left: 5px;
+    margin-bottom: 0px;
+    display: block;
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: 500;
+}
+input{
+    display: block;
+    height: 50px;
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.205);
+    border-radius: 10px;
+    padding: 0 10px;
+
+    font-size: 14px;
+}
+::placeholder{
+    color: rgba(1, 1, 1, 0.402);
+}
+/* Button Desing */
+.btn-link {
+  text-decoration: none;
+  margin-bottom: 10px;
+    padding: 10px 20px;
+    box-shadow: 5px 5px  rgb(52, 25, 57);
+    font-weight: bold;
+    color: #010000;
+    font-size: 15px;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 12px;
+  }
+  .btn-link::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #fefefe;
+    left: 0;
+    top: 0;
+    border: solid 1px rgba(155, 7, 241, 0.317);
+    border-radius: 10px;
+  }
+  /* Button glow */
+  .btn-link::before {
+    content: "";
+    background: linear-gradient(
+      45deg,
+      #FF0000, #FF7300, #FFFB00, #48FF00,
+      #00FFD5, #002BFF, #FF00C8, #FF0000
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 600%;
+    z-index: -1;
+    width: calc(100% + 4px);
+    height:  calc(100% + 4px);
+    filter: blur(8px);
+    animation: glowing 20s linear infinite;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+    opacity: 0;
+  }
+  
+  @keyframes glowing {
+    0% {background-position: 0 0;}
+    50% {background-position: 400% 0;}
+    100% {background-position: 0 0;}
+  }
+  
+  /* Button hover */
+  .btn-link:hover::before {
+    opacity: 1;
+  }
+  
+  .btn-link:active:after {
+    background: transparent;
+  }
+  
+  .btn-link:active {
+    color: #000;
+    font-weight: bold;
+  }
+
+  .navigation{
+    display: flex;
+    gap: 30px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
